@@ -23,7 +23,7 @@ rm -f /etc/init.d/datadog-agent
 rm -rf /etc/dd-agent
 rm -rf /opt/$PROJECT_NAME/*
 
-cd $PROJECT_DIR
+#cd $PROJECT_DIR
 # Allow to use a different dd-agent-omnibus branch
 git fetch --all
 git checkout $OMNIBUS_BRANCH
@@ -42,5 +42,6 @@ git --git-dir=/var/cache/omnibus/cache/git_cache/opt/datadog-agent tag -d `git -
 git --git-dir=/var/cache/omnibus/cache/git_cache/opt/datadog-agent tag -d `git --git-dir=/var/cache/omnibus/cache/git_cache/opt/datadog-agent tag -l | grep datadog-metro` || true
 
 # Install the gems we need, with stubs in bin/
+bundle install --binstubs
 bundle update # Make sure to update to the latest version of omnibus-software
 bin/omnibus build -l=$LOG_LEVEL $PROJECT_NAME
