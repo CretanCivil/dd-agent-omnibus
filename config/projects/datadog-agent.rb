@@ -54,8 +54,8 @@ end
 
 # OSX .pkg specific flags
 package :pkg do
-  identifier 'com.datadoghq.agent'
-  signing_identity 'Developer ID Installer: Datadog, Inc. (JKFCB4CN7C)'
+  #identifier 'com.datadoghq.agent'
+  #signing_identity 'Developer ID Installer: Datadog, Inc. (JKFCB4CN7C)'
 end
 compress :dmg do
   window_bounds '200, 200, 750, 600'
