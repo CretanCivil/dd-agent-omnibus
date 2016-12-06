@@ -73,3 +73,9 @@ Then run:
 AGENT_BRANCH=<YOUR_AGENT_BRANCH> OMNIBUS_BRANCH=<YOUR_OMNIBUS_BRANCH> OMNIBUS_SOFTWARE_BRANCH=<YOUR_OMNIBUS_SOFTWARE_BRANCH> sh omnibus_build.sh
 ```
 The env vars have the same meaning as the Dockerized build above. Omitting them will cause the default of `master` to be used for all 3
+
+
+
+```
+  LOCAL_AGENT_REPO=~/dd-agent sh omnibus_build.sh 
+```
