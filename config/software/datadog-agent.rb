@@ -11,8 +11,9 @@ else
 end
 
 agent_branch = ENV['AGENT_BRANCH']
+#master
 if agent_branch.nil? || agent_branch.empty?
-  default_version 'master'
+  default_version '5.10.1'
 else
   default_version agent_branch
 end
@@ -131,6 +132,11 @@ build do
       command "cat #{install_dir}/embedded/#{dependency_name}-files.txt | xargs rm -rf \"{}\""
       delete "#{install_dir}/embedded/#{dependency_name}-files.txt"
     end
+
+
+    command "cp #{install_dir}/embedded/lib/libcrypto.1.0.0.dylib #{install_dir}/Datadog\\ Agent.app/Contents/Frameworks/"
+    command "cp #{install_dir}/embedded/lib/libssl.1.0.0.dylib #{install_dir}/Datadog\\ Agent.app/Contents/Frameworks/"
+
 
     # conf
     mkdir "#{install_dir}/etc"
